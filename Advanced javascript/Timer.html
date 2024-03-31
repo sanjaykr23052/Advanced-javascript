@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Current Time</title>
+  <link rel="stylesheet" href="Timer.css">
+
+
+</head>
+<body>
+  <h1>Show Current Time</h1>
+  <p>Current Time: <span id="currentTime"></span></p>
+  <button id="toggleBtn" onclick="toggleTime()">Toggle Time</button>
+
+  <script>
+    let intervalId;
+
+    function displayTime() {
+      const currentTime = new Date();
+      const hours = currentTime.getHours().toString().padStart(2, '0');
+      const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+      const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+      document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    function toggleTime() {
+      if (intervalId) {
+        // If intervalId exists, clear the interval and stop the display
+        clearInterval(intervalId);
+        intervalId = null;
+        document.getElementById('toggleBtn').textContent = 'Show Time';
+      } else {
+        // If intervalId is null, start the interval and display the time
+        displayTime();
+        intervalId = setInterval(displayTime, 1000); // Update every second
+        document.getElementById('toggleBtn').textContent = 'Stop Time';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<script>
+// async function getData(){
+//     let resultfromServer =await fetch("https://dummyjson.com/users");
+//     console.log(await resultfromServer.json);
+// }
+// getData();
+
+ //Second example promise
+
+let promise = new Promise(function(resolve, reject){
+    let goodDeveloper = true;
+    if(goodDeveloper){
+        setTimeout(()=>{
+            resolve("Yoshita jain ko subscribe karo");
+        })
+    }
+    else{
+        reject("Abi time hai subscribe kar lo");
+    }
+});
+promise.then((res)=>{
+    console.log(res);
+}).catch((error)=>{
+    console.log(error)
+})
+
+</script>

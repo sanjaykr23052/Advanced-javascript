@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Event-Propgation in javascript</title>
+    <link rel="stylesheet" href="Event-prop.css">
+</head>
+<body>
+    <h2>Learning Event-Propgation in javascript</h2>
+   <div>
+    <div id="div1">Grant-parent
+    <div id="div2">Parent
+
+    <div id="div3">Child</div>
+</div>
+</div>
+<script>
+    document.querySelector.addEventListener('click', ()=>{
+        console.log(" Div 1");
+    },true)
+    document.querySelector.addEventListener('click', (e)=>{
+        console.log(" Div 2");
+
+
+    },true)
+    document.querySelector.addEventListener('click', (e)=>{
+        console.log(" Div 3");
+        e.stopPropagation();
+
+
+    },true)
+</script>
+
+
+    
+</body>
+</html>
